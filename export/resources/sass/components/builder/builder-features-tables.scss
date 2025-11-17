@@ -1,0 +1,67 @@
+.component--features_table{
+
+.price-table{
+
+
+    @media screen and (max-width: 820px) {    
+        &[data-selected="2"]{
+            .price-table__item:nth-child(2){
+                display: flex;
+            }
+        }
+        &[data-selected="3"]{
+            .price-table__item:nth-child(3){
+                display: flex;
+            }
+        }
+        &[data-selected="4"]{
+            .price-table__item:nth-child(4){
+                display: flex;
+            }
+        }
+        &[data-selected="5"]{
+            .price-table__item:nth-child(5){
+                display: flex;
+            }
+        }
+        &__item{
+            &:not(:first-child){
+                display: none;
+            }
+         }
+    }
+    &__item{
+        display: flex;
+        align-items: center;
+        border-color:  var(--gray-100);
+        &:not(:first-child){
+            justify-content: center;
+        }
+
+
+    }
+    &__row{
+        &:hover{
+            background-color: var(--gray-100);
+        }
+    }
+}
+    .price-table-head{
+        top: calc(var(--headerHeigth) - 1px);
+        z-index: 10;
+        &__item{
+            display: flex;
+            border-color:  var(--gray-50);
+            flex-direction: column;
+            &:not(:first-child){
+                //justify-content: center;
+            }
+        }
+        .mobile-trigger{
+            border-radius: 4px;
+            &.is-active{
+                background-color: var(--gray-50);
+            }
+        }
+    }
+}

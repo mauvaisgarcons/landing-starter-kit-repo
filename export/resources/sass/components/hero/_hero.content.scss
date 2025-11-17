@@ -1,0 +1,259 @@
+@use "@/sass/abstracts/functions";
+
+.hero {
+    position: relative;
+    overflow: hidden;
+    .back-to-collection {
+        a{
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        @include breakpoint('max-width', $tablet, 'px') {
+            margin-bottom: var(--space-sm);
+        }
+    }
+
+    .hero__container {
+
+        .content,
+        .image {
+            z-index: 1;
+            position: relative;
+        }
+
+        .background-image {
+            z-index: 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+
+            img {
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+            }
+        }
+    }
+
+    // Side by side content images
+    &--side {
+        .hero__container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            grid-gap: var(--space-lg);
+
+            @include breakpoint('max-width', $largeTablet, 'px') {
+                display: block;
+                text-align: center;
+
+                .content {
+                    max-width: 900px;
+                    margin: auto;
+                    padding-bottom: var(--space-lg);
+                }
+            }
+        }
+    }
+
+    &--fullheight-img {
+        padding: 0 !important;
+        overflow: hidden;
+
+        .grid {
+            grid-template-columns: 1fr 0.7fr;
+
+            .hero__container {
+                position: relative;
+                align-self: center;
+                z-index: 2;
+            }
+
+            .image {
+                position: relative;
+                height: calc(100vh - var(--headerHeigth));
+                z-index: 3;
+
+                img {
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+        }
+
+        @include breakpoint('max-width', $largeTablet, 'px') {
+            .grid {
+                grid-template-columns: 1fr 0.5fr;
+
+                .hero__container {
+                    margin: var(--space-xl) 0;
+                }
+
+                .image {
+                    height: 100%;
+                }
+            }
+
+            @include breakpoint('max-width', $mobile, 'px') {
+                .grid {
+                    .hero__container {
+                        margin: var(--space-sm) 0;
+                    }
+
+                    .image {
+                        height: 100%;
+                        max-height: 400px;
+                    }
+                }
+            }
+        }
+    }
+
+    &--center {
+        .hero__container {
+            text-align: center;
+
+            .content {
+                max-width: 1100px;
+                margin: auto;
+                .text-tags,
+                .tags-list{
+                    justify-content: center;
+                    @include breakpoint('max-width', $tablet, 'px') {}
+                }
+                .content-block {
+                    margin: auto;
+                    
+                    p {
+                        max-width: 800px;
+                        margin: auto;
+                    }
+                }
+
+            }
+
+            &--asset {
+                .content {
+                    padding-bottom: var(--space-lg);
+                }
+                .image{
+                    overflow: hidden;
+                    border-radius: bm(10, 25);
+                }
+            }
+        }
+
+    }
+
+    &--background {
+        min-height: calc(100vh - 135px);
+        display: flex;
+        align-items: center;
+        position: relative;
+
+        .wrapper {
+            flex: 1;
+        }
+
+        .hero__container {
+            .content {
+                position: relative;
+                z-index: 1;
+                color: var(--light);
+                width: 80%;
+            }
+
+            .image {
+                z-index: 0;
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 100%;
+                width: 100%;
+
+                img {
+                    height: 100%;
+                    width: 100%;
+                    object-fit: cover;
+                }
+            }
+        }
+
+        @media (orientation: portrait) {
+            min-height: calc(60vh - 135px);
+
+        }
+
+        @include breakpoint('max-width', $tablet, 'px') {
+            min-height: 50vh;
+
+            .hero__container {
+                .content {
+                    width: 60%;
+                }
+            }
+
+            @include breakpoint('max-width', $mobile, 'px') {
+                min-height: 60vh;
+
+                .hero__container {
+                    .content {
+                        width: 80%;
+                    }
+                }
+            }
+        }
+    }
+
+
+
+    // Reponsive hero with image
+    @include breakpoint('max-width', $tablet, 'px') {
+
+        &.hero--asset,
+        &.hero--side {
+            padding-bottom: 0;
+
+            .image {
+                width: 100vw;
+                @include transform(translateX(-20px));
+                border-radius: 0;
+                @include breakpoint('max-width', $mobile, 'px') {
+                    @include transform(translateX(-20px));
+                }
+            }
+        }
+    }
+
+    .tags-list {
+        margin-top: var(--space-sm);
+    }
+
+    @include breakpoint('max-width', $tablet, 'px') {
+
+        &--center,
+        &--side {
+            .hero__container {
+                &--asset {
+                    .content {
+                        padding-bottom: var(--space-sm);
+                    }
+                }
+
+                @include breakpoint('max-width', $mobile, 'px') {
+                    text-align: left;
+                    .content{
+                        .text-tags,
+                        .tags-list{
+                            justify-content: flex-start;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

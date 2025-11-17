@@ -1,0 +1,41 @@
+@use "@/sass/abstracts" as *;
+
+
+.table{       
+    overflow-x: scroll;
+    &__content{
+        min-width: 800px;
+    }
+}
+table {
+    color: var(--theme-table-color);
+    border-collapse: collapse;
+
+    thead tr {
+        border: solid 1px var(--theme-table-border);
+        background-color: var(--theme-table-head-background);
+        color: var(--theme-table-head-foreground);
+        th {
+            text-align: left;
+            padding: bm(15, 20) bm(10, 15);
+            border-right: solid 1px var(--theme-table-border);
+            
+        }
+    }
+
+    tbody {
+        tr {
+            border-collapse: collapse;
+            border: solid 1px var(--theme-table-border);
+
+            td {
+                border-collapse: collapse;
+                border-right: solid 1px var(--theme-table-border);
+                padding: bm(10, 15);
+                text-align: left;
+            }
+
+        }
+    }
+
+}

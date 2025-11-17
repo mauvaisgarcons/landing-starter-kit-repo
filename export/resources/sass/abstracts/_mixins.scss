@@ -1,0 +1,210 @@
+/* 02- IMPORTATION DES MIXINS */
+@mixin transform($transforms) {
+  -moz-transform: $transforms;
+  -o-transform: $transforms;
+  -ms-transform: $transforms;
+  -webkit-transform: $transforms;
+  transform: $transforms;
+}
+
+@mixin translate ($x, $y) {
+  @include transform(translate($x, $y));
+}
+
+@mixin rotate ($deg) {
+  @include transform(rotate(#{$deg}deg));
+}
+
+@mixin shadow($shadow) {
+  -webkit-box-shadow: $shadow;
+  -moz-box-shadow: $shadow;
+  box-shadow: $shadow;
+}
+
+@mixin display-grid() {
+  display: -ms-grid;
+  display: grid;
+}
+
+
+// USE :  @include center();
+@mixin center() {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  @include transform(translateX(-50%) translateY(-50%));
+}
+
+// Keyframe animation
+@mixin keyframes($name) {
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+
+  @-ms-keyframes #{$name} {
+    @content;
+  }
+
+  @keyframes #{$name} {
+    @content;
+  }
+}
+
+// @include animation('move-the-object .5s 1', 'move-the-object-again .5s 1
+@mixin animation($animate...) {
+  $max: length($animate);
+  $animations: '';
+
+  @for $i from 1 through $max {
+    $animations: #{$animations + nth($animate, $i)};
+
+    @if $i < $max {
+      $animations: #{$animations + ", "};
+    }
+  }
+
+  -webkit-animation: $animations;
+  -moz-animation: $animations;
+  -o-animation: $animations;
+  animation: $animations;
+}
+
+/*********************
+BREAKPOINTS
+*********************/
+@mixin breakpoint($direction, $size, $unit) {
+  @media ($direction: ($size + $unit)) {
+    @content ;
+  }
+}
+
+
+@mixin gridTemplateColumns($size) {
+  grid-template-columns: $size;
+  -ms-grid-columns: $size;
+}
+
+
+/*
+* HoverMobile
+* Hover option with media query for mobile device
+* Prevent hover from showing on no pointer devide
+*/
+
+@mixin hover() {
+
+  /* smartphones, touchscreens */
+  @media (pointer: fine) {
+    &:hover {
+      @content;
+    }
+  }
+}
+
+/*
+* Only browser css
+*
+*
+*/
+// Safari
+@mixin browserSafari() {
+  @media screen and (min-color-index:0) and (-webkit-min-device-pixel-ratio:0) {
+    @content;
+  }
+}
+
+
+
+//Firefox
+@mixin browserFirefox {
+  @at-root {
+    @-moz-document url-prefix() {
+      & {
+        @content;
+      }
+    }
+  }
+}
+
+/*
+Usage:
+@include target-metro {
+  color: cyan;
+}
+*/
+@mixin browserIE {
+
+  @media screen and (-ms-high-contrast: active),
+  (-ms-high-contrast: none) {
+    @content;
+  }
+}
+
+@mixin browserEdge {
+  @supports (-ms-ime-align: auto) {
+    @content;
+  }
+}
+
+
+/*
+    This mixin allows us use CSS grid without having to think about
+    what -ms-grid-row/-ms-grid-column we have to assign to a grid element
+    for it to properly work on Internet Explorer and Edge.
+    It takes three arguments, the last one of which is optional. Specify the
+    maximum amount of items you want to have in your grid, when they should
+    break to the next line and, if you like, a grid-gap of some sort.
+    Make sure to use the same amount of arguments in -ms-grid-columns as in
+    $wrap-on, so it correctly breaks the line, eg. '1fr 2fr 1fr 2fr 1fr' and
+    '5'.
+    Usage:
+    .grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 10px;
+        display: -ms-grid;
+        -ms-grid-columns: 1fr 1fr 1fr;
+        &-item {
+            @include grid-ie-calc(15, 3, 10px);
+        }
+    }
+    See it in action here:
+    https://rbnlffl.synology.me/grid-ie-calc
+    Tested on:
+    IE 11, Edge 38, Chrome 58, Firefox 53, Safari 10, Opera 45
+*/
+
+@mixin grid-ie-calc($items: 30, $wrap-on: 3, $grid-gap: 0) {
+  $current-row: 1;
+  $current-column: 1;
+
+  @if $grid-gap >0 {
+    & {
+      margin: $grid-gap / 2;
+
+      @supports (grid-gap: $grid-gap) {
+        margin: 0;
+      }
+    }
+  }
+
+  @for $i from 1 through $items {
+    @if $current-column >$wrap-on {
+      $current-column: 1;
+      $current-row: $current-row + 1;
+    }
+
+    &:nth-child(#{$i}) {
+      -ms-grid-row: $current-row;
+      grid-row: $current-row;
+      -ms-grid-column: $current-column;
+      grid-column: $current-column;
+    }
+
+    $current-column: $current-column + 1;
+  }
+}

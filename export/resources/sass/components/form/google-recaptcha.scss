@@ -1,0 +1,10 @@
+@use "@/sass/abstracts" as *;
+
+.google-recaptcha{
+    margin: var(--space-sm) 0;
+    max-width: 380px;
+    * {
+        font-size: rem(12);
+        line-height: em(16);
+    }
+}

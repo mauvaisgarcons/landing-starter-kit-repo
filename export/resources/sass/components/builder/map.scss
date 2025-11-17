@@ -1,0 +1,16 @@
+@use "@/sass/abstracts" as *;
+
+#map{
+    height: 35vw;
+    min-height: 500px;
+    width: 100%;
+
+    @include breakpoint('max-width', $mobile, 'px'){
+        width: 100vw;
+        @include transform(translateX(-20px));
+    }
+}
+
+.google-map-notice{
+    border: solid 4px var(--warning-600);
+}

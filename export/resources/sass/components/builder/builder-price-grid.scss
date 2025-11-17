@@ -1,0 +1,38 @@
+@use "@/sass/abstracts" as *;
+
+
+.component--price_grid{
+
+    .with-frequency{
+        display: none;
+    }
+    .without-frequency{
+        display: flex;
+    }
+    &.has-frequency{
+        .card-price{
+            .with-frequency{
+                display: flex;
+            }
+            .without-frequency{
+                display: none;
+            }
+        }
+    }
+}
+
+.grid-price{
+    margin-top: 40px;
+   
+}
+
+// Single card price
+.card-price{
+    //background-color: var(--gray-50);
+    //color: var(--secondary-text-foreground);
+    height: 100%;
+    &--highlight{
+        //background-color: var(--accent);
+        //color: var(--accent-text-foreground);
+    }
+}

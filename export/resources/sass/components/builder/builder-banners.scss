@@ -1,0 +1,25 @@
+@use "@/sass/abstracts" as *;
+
+/*
+.component--image_content, .component--contact_infos {
+    .grid{
+        align-items: center;
+        grid-gap: var(--space-xl);
+    }
+
+    @include breakpoint('max-width', 900, 'px'){
+        .grid{
+            grid-template-columns: 1fr;
+            grid-gap: var(--space-sm);
+        }
+    }   
+
+    @include breakpoint('max-width', $mobile, 'px'){
+        .grid{
+            .grid-item{
+                margin-bottom: var(--space-sm);
+            }
+        }
+    }
+    
+}*/

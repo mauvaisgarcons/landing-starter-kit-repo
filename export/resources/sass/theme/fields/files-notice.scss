@@ -1,0 +1,14 @@
+@use "@/sass/abstracts" as *;
+
+.files-notice {
+    display: none;
+    padding: 20px 20px;
+    color: var(--input-color);
+    margin-bottom: 10px;
+    text-align: center;
+    background-color: red;
+
+    &.is-visible {
+        display: block;
+    }
+}

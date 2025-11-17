@@ -1,0 +1,11 @@
+@use "@/sass/abstracts" as *;
+
+// Form group
+.form-wrapper{
+    &__head{
+        margin-bottom: var(--space-sm);
+        @include breakpoint('max-width', $mobile, 'px'){
+            margin-bottom: var(--space-sm);
+        }
+    } 
+}

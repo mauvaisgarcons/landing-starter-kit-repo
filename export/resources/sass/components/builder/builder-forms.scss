@@ -1,0 +1,54 @@
+@use "@/sass/abstracts" as *;
+
+.component--form{
+    .contact-content{
+        margin-bottom: var(--space-lg);
+    }
+    > .component__grid{
+        > .grid-item{
+            padding: var(--space-lg) 0;
+            &:first-child{
+                background-color: var(--secondary);
+                @include breakpoint('max-width', $largeTablet, 'px'){
+                    .contact-informations{
+                        .grid{
+                            grid-template-columns: 1fr;
+                            @include breakpoint('max-width', 900, 'px'){
+                                grid-template-columns: 1fr 1fr;
+                            }
+                        }
+                    }
+                }
+            }
+
+            @include breakpoint('max-width', $smallDesktop, 'px') {
+                padding: var(--space-lg) var(--space-lg);
+                
+                @include breakpoint('max-width', $tablet, 'px') {
+                    padding: var(--space-sm) var(--space-sm);
+        
+                    @include breakpoint('max-width', $mobile, 'px') {
+                        padding: var(--space-sm) var(--space-sm);
+                    }
+                }
+            }
+        }
+    }
+    @include breakpoint('max-width', $smallDesktop, 'px'){
+        > .component__grid{
+            grid-gap: 0;
+        }
+        @include breakpoint('max-width', 900, 'px'){
+            .contact-content{
+                margin-bottom: var(--space-sm);
+            }
+            > .component__grid{
+                display: block;
+                > .grid-item{
+                    padding: var(--space-sm) 0;
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+}

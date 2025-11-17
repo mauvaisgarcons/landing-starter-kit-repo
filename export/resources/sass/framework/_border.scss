@@ -1,0 +1,84 @@
+@use "./config" as *;
+@use "@/sass/abstracts" as *;
+
+$sides: (
+    top,
+    right,
+    bottom,
+    left,
+);
+$border-styles: (
+    "solid",
+    "dashed",
+    "dotted",
+    "double",
+);
+
+
+.border {
+    border-width: 1px;
+    border-style: solid;
+}
+.border-x{
+    border-inline-width: 1px;
+}
+.border-y{
+   border-block-width: 1px;
+}
+.border-none{
+    border: none;
+}
+
+
+@for $i from 1 through 10 {
+    .border-#{$i} {
+        border-width: #{$i}px;
+    }
+}
+// Border styles for each side
+@each $side in $sides {
+    .border-#{$side}{
+         border-#{$side}-style: solid;
+         border-#{$side}-width: 1px;
+    }
+    @for $i from 1 through 10 {
+        .border-#{$side}-#{$i} {
+            border-#{$side}-style: solid;
+            border-#{$side}-width: #{$i}px;;
+        }
+    }
+}
+
+
+@each $breakpoint, $breakpoint-value in $breakpoints {
+
+    @media screen and (min-width: $breakpoint-value) {
+        .#{$breakpoint}_border {
+            border-width: 1px;
+        }
+        .#{$breakpoint}_border-x{
+            border-inline-width: 1px;
+        }
+        .#{$breakpoint}_border-y{
+        border-block-width: 1px;
+        }
+        .#{$breakpoint}_border-none{
+            border: none;
+        }
+    
+    
+       // Border styles for each side
+        @each $side in $sides {
+            .#{$breakpoint}_border-#{$side}{
+                border-#{$side}-style: solid;
+                border-#{$side}-width: 1px;
+            }
+            @for $i from 1 through 10 {
+                .#{$breakpoint}_border-#{$side}-#{$i} {
+                    border-#{$side}-style: solid;
+                    border-#{$side}-width: #{$i}px;;
+                }
+            }
+        }
+    }
+}

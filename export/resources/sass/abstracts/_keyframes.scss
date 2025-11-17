@@ -1,0 +1,11 @@
+@use "mixins" as *;
+
+// All keyframes animations
+@include keyframes('spinner'){
+    from {
+        @include rotate(0);
+    }
+    to {
+        @include rotate(360);
+    }
+}

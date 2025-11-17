@@ -1,0 +1,91 @@
+@use "@/sass/abstracts" as *;
+
+
+.folders {
+    --folder-background: transparent;
+    --folder-background-hover: var(--gray-50);
+    --folder-foreground: var(--primary);
+    --folder-foreground-on: var(--accent);
+
+    &--primary{
+        --folder-foreground: var(--primary);
+        --folder-foreground-on: var(--accent); //var(--primary-text-foreground);
+    }
+    &--secondary{
+          --folder-foreground: var(--secondary);
+    }
+    &--accent{
+          --folder-foreground: var(--accent);
+    }
+
+    &__toggle {
+        //display: flex;
+        //align-items: center;
+        //justify-content: center;
+        border-bottom: solid 1px var(--folder-foreground);
+
+        .folder {
+            color: var(--folder-foreground);
+            cursor: pointer;
+            transition: all 300ms ease-out;
+            position: relative;
+
+            &:after {
+                content: "";
+                width: 100%;
+                height: 3px;
+                background-color: var(--folder-foreground-on);
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                display: none;
+            }
+
+            &.is-open {
+                color: var(--folder-foreground-on);
+                &::after {
+                    display: block;
+                }
+            }
+
+            @include hover {
+                &:not(.is-open) {
+                    background-color: var(--folder-background-hover);
+                    color: var(--folder-foreground-on);
+                }
+            }
+        }
+
+    }
+
+    &__select {
+        @include breakpoint('max-width', $tablet, 'px') {
+            
+            .field--select {
+                min-width: 300px;
+
+                label {
+                    margin-bottom: 10px;
+                }
+            }
+
+            @include breakpoint('max-width', $mobile, 'px') {
+                text-align: left;
+
+                .field--select {
+                    min-width: 100%;
+                }
+            }
+        }
+    }
+
+    &__content {
+        .folder-content {
+            display: none;
+
+            &.is-open {
+                display: block;
+            }
+        }
+    }
+}

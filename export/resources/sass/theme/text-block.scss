@@ -1,0 +1,93 @@
+@use "@/sass/abstracts" as *;
+
+.text-block {
+    display: inline-flex;
+    flex-direction: column;
+    //align-items: flex-start;
+    gap: 20px;
+    
+    > *{
+        //width: 100%;
+    }
+
+    &--small {
+        gap: 10px;
+    }
+
+
+
+    > :first-child {
+        margin-top: 0 !important; // Remove margin on first child
+    }
+
+    h3,
+    h4,
+    h5,
+    h6 {
+        margin-top: var(--space-md);
+    }
+
+    h2 {
+        margin-top: var(--space-md);
+    }
+
+    ol {
+        list-style: decimal;
+        padding-left: 20px;
+
+        li {
+            list-style: decimal;
+        }
+    }
+
+    // List item
+    ul,
+    ol {
+        &:not(.tags-list){
+            li {
+                margin: 10px 0;
+            }
+        }
+
+    }
+
+    ul {
+        &:not(.tags-list){
+            margin-left: var(--space-sm);
+        
+            li {
+                list-style: disc;
+            }
+        }
+    }
+
+    a:not(.btn),
+    .link {
+        transition: all 300ms var(--transition-basic);
+        display: inline-flex;
+        align-items: center;
+
+        @include hover() {
+            color: var(--accent);
+        }
+    }
+
+
+    blockquote {
+        background-color: var(--gray-50);
+        padding: var(--space-sm) var(--space-sm);
+        border-left: solid 3px var(--accent)
+    }
+
+
+    &__list-item {
+        @include breakpoint('max-width', $tablet, 'px') {
+            &> :last-child {
+                margin-top: 10px;
+            }
+        }
+    }
+}
+.components .text-block {
+    align-items: flex-start;
+}

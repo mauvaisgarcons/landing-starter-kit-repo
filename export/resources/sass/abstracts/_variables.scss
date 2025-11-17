@@ -1,0 +1,24 @@
+@use "@/sass/abstracts/mixins";
+
+$browser-context: 16; // Default
+
+// Screen sizes variables
+$smallDesktop: 1280;
+$largeTablet: 1080;
+$tablet: 820; //change to 768 for old way
+$mobile: 600;
+$smallMobile: 420;
+
+// Breakpoints for menu are different
+$menuSmallDesktop: 1100;
+$menuTablet: 950;
+
+:root {
+
+    // The height of the header navigation. It will allow us to push content below that height when the menu is fixe on top
+    --headerHeight: 100px;
+     
+    // Transiton variables
+    --transition-fast: cubic-bezier(0.35, 0, 0, 1);
+    --transition-basic: cubic-bezier(.58, .00, .32, 1);
+}

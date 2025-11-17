@@ -1,0 +1,35 @@
+@use "@/sass/abstracts" as *;
+
+.component--table {
+    &.background{
+        &--primary{
+            tbody{
+                tr {
+                    &:nth-child(odd) {
+                        td,
+                        th {
+                            background-color: var(--gray);
+                        }
+                    }
+            
+                    th {
+                        padding: var(--space-sm);
+                        border-bottom: solid 1px  var(--gray);
+                    }
+            
+                    td {
+                        border-collapse: collapse;
+                        border-bottom: solid 1px  var(--gray);
+                        padding: var(--space-sm);
+                        text-align: left;
+                        background-color: white;
+                        @include breakpoint('max-width', $tablet, 'px') {
+                            padding: 10px;
+                        }
+                    }
+            
+                }
+            }
+        }
+    }
+}

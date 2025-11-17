@@ -1,0 +1,79 @@
+@use "@/sass/abstracts" as *;
+
+//gallery slider section
+.popup--gallery {
+    .slider {
+        width: 90vw;
+        max-width: 1250px;
+
+        .swiper-wrapper {
+            align-items: center;
+        }
+
+        .swiper-slide {
+            display: flex;
+            justify-content: center;
+            transition: opacity 500ms var(--transition-basic);
+            opacity: 0 !important;
+            pointer-events: none;
+
+            .fullscreen-image {
+                height: 90vh;
+                text-align: center;
+
+                img {
+                    height: 100%;
+                    width: 85%;
+                    margin: auto;
+                    object-fit: contain;
+                }
+            }
+
+            &.swiper-slide-active {
+                opacity: 1 !important;
+            }
+        }
+    }
+    .content-wrapper{
+        height: 100%;
+        display: flex;
+        align-items: center;
+    }
+    .popup__close {
+        position: absolute;
+        top: var(--space-sm);
+        right: var(--space-sm);
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 300ms var(--transition-basic);
+        z-index: 100;
+        opacity: 0;;
+    }
+
+    .navigation {
+        width: 100%;
+        position: absolute;
+        z-index: 100;
+        bottom: 0;
+        right: var(--space-sm);
+        color: white;
+        padding: var(--space-sm);
+    }
+
+    &.is-loaded {
+        .popup__close {
+            opacity: 1;
+        }
+        .popup__overlay{
+            background-color: rgba(0, 0, 0, 0.95) !important;
+        }
+    }
+}
+
+.component--image_gallery {
+    .component__content {
+        z-index: inherit !important;
+    }
+}
+
+

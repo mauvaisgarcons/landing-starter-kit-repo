@@ -1,0 +1,60 @@
+@use "@/sass/abstracts" as *;
+
+// Import Footer components
+@use "./newsletter";
+@use "./copyright";
+
+.footer {
+    align-items: top;
+    .component {
+
+        .link-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            li {
+                &.on {
+                    a {
+                        text-decoration: underline;
+                    }
+                }
+
+                a {
+                    text-decoration: none;
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 5px;
+
+                    @include hover() {
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
+    }
+
+    &__logo_content {
+        .logo {
+            margin: var(--space-sm) 0;
+            max-width: 50%;
+        }
+    }
+
+    @include breakpoint('max-width', $largeTablet, 'px') {
+        .component {
+            flex: 1;
+            .link-list a {
+                text-decoration: underline;
+            }
+        }
+        
+
+        @include breakpoint('max-width', $tablet, 'px') {
+            .footer__logo_content {
+                max-width: 400px;
+            }
+        }
+
+    }
+
+}

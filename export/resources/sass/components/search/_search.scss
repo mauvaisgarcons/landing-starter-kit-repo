@@ -1,0 +1,84 @@
+@use "@/sass/abstracts" as *;
+
+@use './search-result';
+
+/*
+.search{
+    .search-box{
+        position: absolute;
+        top: 0;
+        right: 0;
+        overflow: hidden;
+        width: 0px;
+        transition: all 300ms var(--transition-basic);
+        height: 45px;
+        // REFACTOT RADIUS VARIABLE FOR BUTTON
+        border-radius: 5px;
+       
+        input{
+            border: none;
+            background-color: var(--primary-600);
+            height: 45px;
+            padding: 0 var(--space-sm);
+            width: 100%;
+
+        }
+        .search-input{
+            background-color: var(--primary-600);
+            height: 100%;
+            form{
+                display: flex;
+                align-items: center;
+                height: 100%;
+                input{
+                    margin-right: -5px;
+                    flex: 1;
+                    &:-webkit-autofill,
+                    &:-webkit-autofill:hover, 
+                    &:-webkit-autofill:focus, 
+                    &:-webkit-autofill:active{
+                        -webkit-box-shadow: 0 0 0 30px #000 inset !important;
+                    }
+                    &:focus{
+                        outline: none;
+                    }
+                }
+                button{
+                    height: 35px;
+                    width: 35px;
+                    opacity: 0;
+                    transition: all 300ms ease-out;
+                }
+            }
+        }
+    }
+    &.is-open{
+        .search-box{
+            width: 300px;
+            .search-input{
+                form button{
+                    transition-delay: 200ms;
+                    opacity: 1;
+                }
+            }   
+        }
+        .search-trigger{
+            opacity: 0;
+            pointer-events: none;
+        }
+    }
+    @include breakpoint("max-width", $mobile, "px") {
+        .search-box{
+            height: 50px;
+        }
+        &.is-open{
+            .search-box{
+                width: 220px;
+                @include breakpoint("max-width", 400, "px") {
+                    width: 180px;
+                }
+            }
+        }
+    }
+}
+*/

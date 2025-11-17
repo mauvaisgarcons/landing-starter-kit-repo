@@ -1,0 +1,9 @@
+@use "@/sass/abstracts" as *;
+
+.back-to-collection {
+    .link {
+        span[class^=icon-],i{
+            margin: 0 12px 0 0;
+        }
+    }
+}

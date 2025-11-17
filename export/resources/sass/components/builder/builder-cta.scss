@@ -1,0 +1,18 @@
+@use "@/sass/abstracts" as *;
+
+// CTA Banner
+.component--cta {
+    .image-position{
+        &-right{
+            .content{
+                order: -1
+            }
+        }
+    }
+    .image{
+        height: 100%;
+        img{
+            height: 100%;
+        }
+    }
+}

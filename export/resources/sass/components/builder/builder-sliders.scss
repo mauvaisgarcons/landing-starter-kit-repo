@@ -1,0 +1,71 @@
+@use "@/sass/abstracts" as *;
+
+
+.slider {
+    position: relative;
+    //overflow: hidden;
+
+    .slide {
+        &--center {
+            text-align: center;
+        }
+
+        &__content {
+            .btn {
+                margin-right: unset !important;
+            }
+        }
+    }
+
+    &--center {
+        .swiper-slide {
+            transition: all 600ms var(--transition-basic);
+            @include transform(scale(0.8));
+
+            .card__content {
+                transition: all 500ms var(--transition-basic);
+                @include transform(translate3d(0, 20px, 0));
+                opacity: 0;
+                max-width: 70%;
+            }
+        }
+
+        .swiper-slide-active {
+            @include transform(scale(1));
+
+            .card__content {
+                transition-delay: 300ms;
+                @include transform(translate3d(0, 0, 0));
+                opacity: 1;
+            }
+        }
+
+        @include breakpoint('max-width', $tablet, 'px') {
+            .swiper-slide {
+                .card__content {
+                    max-width: 85%;
+
+                    @include breakpoint('max-width', $mobile, 'px') {
+                        max-width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+.component--slider_text {
+    //background-color: var(--primary-600);
+    overflow: hidden;
+
+    .swiper-wrapper {
+        align-items: center;
+    }
+}
+
+.component--slider_content {
+    .component__content {
+        overflow: hidden;
+    }
+}

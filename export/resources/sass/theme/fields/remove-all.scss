@@ -1,0 +1,9 @@
+@use "@/sass/abstracts" as *;
+
+.remove-all {
+    text-transform: inherit;
+    display: flex;
+    margin: 10px 0 0 auto;
+    cursor: pointer;
+    margin-bottom: 10px;
+}

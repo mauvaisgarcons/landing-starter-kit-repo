@@ -1,0 +1,23 @@
+// Import header components
+@use './meta';
+@use './menu';
+@use './mega-menu';
+@use './annoucement';
+@use './tabs-skip-to-content';
+
+
+header{
+
+    --header-forground: var(--secondary-text-foreground);
+    --header-background: var(--secondary-400);
+    --header-background-variant: var(--secondary-600);
+    
+    transition: all 300ms ease-out;
+    width: 100%;
+    z-index: 100;
+}
+
+.header{
+    position: sticky;
+    top: 0;
+}

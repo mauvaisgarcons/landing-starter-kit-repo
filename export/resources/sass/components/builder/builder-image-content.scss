@@ -1,0 +1,50 @@
+@use "@/sass/abstracts" as *;
+
+/*
+.component--image_content {
+    .grid{
+        align-items: center;
+        grid-gap: var(--space-xl);
+
+        img{
+            border-radius: bm(10, 25);
+        }
+    }
+    // Flip order content 
+    .text-align-right{
+        .grid-item{
+            &:first-child{
+                order: 2;
+            }
+            &:last-child{
+                order: 1;
+            }
+        }
+    }
+    @include breakpoint('max-width', 900, 'px'){
+        .grid{
+           grid-template-columns: 1fr;
+           grid-gap: var(--space-md);
+        }
+        // Reset grid to good order
+        .text-align-right{
+            .grid-item{
+                &:first-child{
+                    order: 1;
+                }
+                &:last-child{
+                    order: 2;
+                }
+            }
+        }
+    }   
+
+    @include breakpoint('max-width', $mobile, 'px'){
+        .grid{
+            .grid-item{
+                margin-bottom: 0;
+            }
+        }
+    }
+    
+}*/

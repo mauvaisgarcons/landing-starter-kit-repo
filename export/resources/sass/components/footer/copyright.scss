@@ -1,0 +1,32 @@
+@use "@/sass/abstracts" as *;
+
+.copyright {
+    --copyright-background: var(--primary);
+    --copyright-forground: var(--primary-text-foreground);
+
+    background-color: var(--copyright-background);
+    color: var(--copyright-forground);
+    border-top: solid 1px var(--copyright-forground);
+
+    @include breakpoint('max-width', $mobile, 'px') {
+        .main-row{
+            flex-wrap: wrap;
+            text-align: center;
+            justify-content: center;
+            p {
+                flex-basis: 100%;
+                order: 2;
+            }
+
+            .second-row{
+                order: 1;
+                margin: var(--space-sm) 0;
+            }
+            .meta__socials {
+                flex-basis: 100%;
+                justify-content: center;
+                margin-bottom: 10px;
+            }
+        }
+    }
+}

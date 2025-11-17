@@ -1,0 +1,24 @@
+@use "@/sass/abstracts" as *;
+
+.share{
+    ul{
+        display: inline-flex;
+        gap: 10px;
+        align-items: center;
+        margin-top: 10px;
+        li{
+            a, .copy-clipboard{
+
+                text-decoration: none;
+                @include hover(){
+                    color: var(--accent);
+                }
+            }
+            &:first-child{
+                a{
+                    padding-left: 0;
+                }
+            }
+        }
+    }
+}

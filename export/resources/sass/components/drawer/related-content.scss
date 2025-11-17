@@ -1,0 +1,27 @@
+/*
+@use "@/sass/abstracts" as *;
+
+.drawer{
+    .related-content{
+        padding: var(--space-sm) 0;
+        border-top: solid 1px var(--gray);
+        &__title{
+            margin-bottom: var(--space-sm);
+        }
+        .grid{
+            grid-gap: var(--space-sm);
+            .grid-item{
+                .thumbnail{
+                    flex:1;
+                }
+                .content{
+                    flex-basis: 70%;
+                    padding-left: var(--space-sm);
+                }
+            }
+            @include breakpoint('max-width', 900, 'px'){
+                grid-template-columns: 1fr;
+            }
+        }
+    }
+}*/

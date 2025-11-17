@@ -1,0 +1,68 @@
+@use "@/sass/abstracts" as *;
+
+// Meta menu navigation
+.meta {
+    --meta-background: var(--secondary-600);
+    --meta-forground: var(--secondary-text-foreground);
+
+    // Styling
+    background-color: var(--meta-background);
+    color: var(--meta-forground);
+
+    // Socials media and navigation
+    &__socials,
+    &__navigation {
+        li {
+            a {
+
+                text-decoration: none;
+                
+            }
+        }
+    }
+
+    &__socials{
+        svg{
+            height: 18px;
+        }
+    }
+
+    &__navigation {
+        .link {
+            &.on {
+                a {
+                    text-decoration: underline;
+                }
+            }
+
+            a {
+                @include hover() {
+                    text-decoration: underline;
+                }
+            }
+        }
+        svg{
+            height: 12px;
+        }
+
+    }
+
+    &__socials {
+        a {
+            @include hover() {
+                opacity: 0.6;
+            }
+        }
+    }
+
+    &__lang{
+        width: 42px;
+        text-align: center;
+        a{
+            text-decoration: none;
+       
+        }
+        //border-left: solid 1px var(--meta-forground);
+    }
+}
+

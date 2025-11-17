@@ -1,0 +1,28 @@
+@use "@/sass/abstracts" as *;
+
+.drawer {
+    .member {
+        .asset {
+            text-align: center;
+
+            img {
+                max-width: 400px;
+                width: 100%;
+                margin: auto;
+            }
+        }
+
+        .informations {
+            padding-bottom: var(--space-sm);
+
+            &__head {
+                padding: var(--space-sm) 0;
+                text-align: center;
+            }
+
+            &__tags-list {
+                margin-top: var(--space-sm);
+            }
+        }
+    }
+}

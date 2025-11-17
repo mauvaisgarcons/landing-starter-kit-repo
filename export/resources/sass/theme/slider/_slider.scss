@@ -1,0 +1,11 @@
+@use "@/sass/abstracts" as *;
+
+@use "./navigation-wrapper";
+@use "./slider-navigation";
+@use "./swiper-pagination-bullet";
+
+.slider{
+    display: flex;
+    flex-direction: column;
+    gap: bm(20, 40);
+}

@@ -1,0 +1,48 @@
+@use "@/sass/abstracts" as *;
+
+
+.navigation-wrapper {
+
+    .pagination {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+    }
+    .arrow .btn{
+        background-color: rgba(0,0,0,0.8) !important;
+    }
+    .swiper-button-disabled button{
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+
+    .swiper-pagination-bullet{
+        --swiper-pagination-bullet-size: 12px;
+        --swiper-pagination-color: var(--accent-600);
+    }
+    &--fullscreen {
+        display: flex;
+        justify-content: space-between;
+
+        >* {
+            margin: unset;
+        }
+    }
+}
+
+
+@include breakpoint('max-width', $mobile, 'px') {
+    .navigation-wrapper {
+        &--fullscreen {
+                    >* {
+            margin: 0 20px;
+
+            &:last-child {
+                margin-right: 0;
+            }
+
+            }
+        }
+    }
+}

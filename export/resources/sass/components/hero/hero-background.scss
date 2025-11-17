@@ -1,0 +1,22 @@
+@use "@/sass/abstracts" as *;
+
+// TODO FREDE
+.hero-background {
+
+    &--default {
+        background-color: white;
+    }
+
+    &--primary {
+        background-color: var(--primary);
+    }
+
+    &--secondary {
+        background-color: var(--secondary);
+        color: var(--dark-text-foreground);
+    }
+
+    &--gray {
+        background-color: var(--gray);
+    }
+}

@@ -1,0 +1,34 @@
+@use "@/sass/abstracts" as *;
+
+// Card diplay author og blog article ...
+.card-thumbnail {
+    display: flex;
+    border: solid 1px var(--light-600);
+    background-color: var(--light);
+    color:  var(--light-text-foreground);
+    border-radius: 4px;
+    padding: 20px;
+    align-items: center;
+    width: 100%;
+
+    &__image {
+        border-radius: 50%;
+        overflow: hidden;
+        flex-basis: 70px;
+    }
+
+    &__content {
+        flex: 1;
+        padding: 0 var(--space-sm);
+    }
+}    
+
+@include breakpoint('max-width', $mobile, 'px') {
+    .card-thumbnail {
+        padding: 15px var(--space-sm);
+
+        &__image {
+            flex-basis: 50px;
+        }
+    }
+}

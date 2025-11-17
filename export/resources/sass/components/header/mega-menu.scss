@@ -1,0 +1,100 @@
+@use "@/sass/abstracts" as *;
+
+// Megamenu style
+.has-mega-menu {
+    --mega-menu-background: var(--secondary);
+    --mega-menu-forground: var(--header-forground);
+    --mega-shadow: 2px 10px 11px -6px rgba(0,0,0,0.1);
+
+    .childrens--mega {
+        position: absolute;
+        width: 100%;
+        left: 0;
+        min-height: 200px;
+        //padding-top: 25px !important;
+        box-shadow: var(--mega-shadow);
+
+        .zones {
+            //border-top: solid 1px var(--mega-menu-forground);
+            //border-bottom: solid 1px var(--mega-menu-forground);
+            background-color: var(--mega-menu-background);
+            color: var(--mega-menu-forground);
+            .zone {
+                
+                
+                &:not(:last-child){
+                    border-top: solid 1px var(--gray-50);
+                    border-right: solid 1px var(--gray-50);
+                }
+                &--mm_image {
+                    .image{
+                        &:after{
+                            content: '';
+                            width: 100%;
+                            height: 100%;
+                            position: absolute;
+                            pointer-events: none;
+                            left: 0;
+                            top: 0;
+                            z-index: 10;
+                             background: linear-gradient(181deg,rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%);
+                        }
+                    }
+                    .content-link{
+                        bottom: 0;
+                        left: 0;
+                        z-index: 15;
+                    }
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                    }
+                }
+                &--mm_content{
+                    .callout{
+                        border-radius: 4px;
+                    }
+                }
+                 &--mm_navigation{
+                    .link a{
+                        background-color: transparent;
+                    }
+                 }
+                
+                &:not(:last-child){
+                    //border-right: solid 1px var(--mega-menu-forground);
+                }
+            }
+        }
+
+        &.closing {
+            display: none;
+        }
+
+    }
+}
+
+@include breakpoint('max-width', $menuSmallDesktop, 'px') {
+    .menu .pages__container .menu__links .link.has-children {
+        .childrens {
+            background-color: var(--gray-50);
+            position: fixed;
+            right: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            z-index: 10;
+            padding: 0;
+            @include transform(translate3d(100%, 0, 0));
+            pointer-events: visible;
+            .zones{
+                border: none;
+                .zone{
+                    border: none;
+                }
+            }
+        }
+    }
+}

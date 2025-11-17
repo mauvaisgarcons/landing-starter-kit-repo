@@ -1,0 +1,78 @@
+// Global css use by Les Mauvais Garcons not in the default web normalize.scss 
+
+/*
+* Prevent site from scrolling left and right if there is some overflow items
+*/
+html {
+    //overflow-x: hidden;
+    overscroll-behavior: none;
+
+    &.s-hidden {
+        overflow: hidden;
+    }
+}
+
+body {
+    overflow-x: hidden;
+    //background-color: white;
+
+    &.s-hidden {
+       // overflow: hidden;
+    }
+}
+
+
+// Default table must be 100%
+table {
+    width: 100%;
+}
+
+/*
+* By default align all image ay bottom. Prevent some weird bottom line in some browser.
+*/
+img {
+    vertical-align: bottom;
+    width: 100%;
+}
+
+/*
+* Most component and dom elment will include padding
+*/
+* {
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/*
+* Sync with a js fonction, this will prevent animation when page resizing. Better user expert less laggy
+*/
+.resize-animation-stopper * {
+    animation: none !important;
+    transition: none !important;
+}
+
+/*
+* Removing default padding indentation to list.
+*/
+ul,
+ol,
+li {
+    padding: 0;
+    list-style: none;
+}
+
+
+
+
+/* For all <code> */
+code,
+pre {
+    //font-family: MyFancyCustomFont, monospace;
+    font-size: 14px;
+    line-height: 18px;
+    padding: 5px;
+    background-color:  rgba(var(--gray), 1);
+    color: var(--light-text-foreground);
+    border-radius: 5px;
+}

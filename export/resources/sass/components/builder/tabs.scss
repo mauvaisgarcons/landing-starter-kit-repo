@@ -1,0 +1,14 @@
+.tabs{
+    .tab{
+        //margin: var(--space-sm) 0;
+        overflow: hidden;
+        &:first-child{
+            margin-top: 0;
+        }
+        &:last-child{
+            margin-bottom: 0;
+        }
+    }
+}
+
+

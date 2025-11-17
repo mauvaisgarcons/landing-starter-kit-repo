@@ -1,0 +1,13 @@
+@use "@/sass/abstracts" as *;
+
+.form-success{
+    background-color: var(--success);
+    padding: var(--space-sm);
+    text-align: center;
+    margin-bottom: var(--space-sm);
+    display: none;
+    
+    &.is-visible{
+        display: block;
+    }
+}

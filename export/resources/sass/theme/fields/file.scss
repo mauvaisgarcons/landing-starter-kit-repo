@@ -1,0 +1,33 @@
+@use "@/sass/abstracts" as *;
+
+.file {
+    padding: 15px 0;
+    border-bottom: solid 1px;
+    
+    &__title {
+        display: flex;
+        align-items: center;
+
+        svg {
+            width: 20px;
+            height: 25px;
+            margin-right: 5px;
+        }
+    }
+
+    .remove {
+        text-transform: inherit;
+        color: var(--error);
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        padding: 0;
+        background-color: transparent;
+        svg {
+            margin-left: 5px;
+            width: 12px;
+            height: 12px;
+            overflow: visible;
+        }
+    }
+}

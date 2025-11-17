@@ -1,0 +1,10 @@
+@use "@/sass/abstracts" as *;
+
+.files-list {
+    display: none;
+    margin-top: 20px;
+
+    &.is-visible {
+        display: block;
+    }
+}

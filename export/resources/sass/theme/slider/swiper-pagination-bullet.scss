@@ -1,0 +1,14 @@
+@use "@/sass/abstracts" as *;
+
+.swiper-pagination-bullet {
+    width: 12px;
+    height: 12px;
+    border: solid 1px var(--light);
+    margin: 0 5px;
+    background-color: transparent;
+    opacity: 1;
+
+    &-active {
+        background-color: var(--light);
+    }
+}

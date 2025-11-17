@@ -1,0 +1,161 @@
+@use "@/sass/abstracts" as *;
+
+@use "./back-to-collection.scss";
+@use "./hero-background.scss";
+@use "./hero-slider";
+
+.hero{
+
+    &__container {
+
+        .content,
+        .image {
+            z-index: 1;
+            position: relative;
+        }
+
+        .background-image {
+            z-index: 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+
+            img {
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+            }
+        }
+    }
+
+    &--fullheight-img {
+        padding: 0 !important;
+        overflow: hidden;
+
+        .grid {
+            grid-template-columns: 1fr 0.7fr;
+
+            .hero__container {
+                position: relative;
+                align-self: center;
+                z-index: 2;
+            }
+
+            .image {
+                position: relative;
+                height: calc(100vh - var(--headerHeigth));
+                z-index: 3;
+
+                img {
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+        }
+
+        @include breakpoint('max-width', $largeTablet, 'px') {
+            .grid {
+                grid-template-columns: 1fr 0.5fr;
+
+                .hero__container {
+                    margin: var(--space-xl) 0;
+                }
+
+                .image {
+                    height: 100%;
+                }
+            }
+
+            @include breakpoint('max-width', $mobile, 'px') {
+                .grid {
+                    .hero__container {
+                        margin: var(--space-sm) 0;
+                    }
+
+                    .image {
+                        height: 100%;
+                        max-height: 400px;
+                    }
+                }
+            }
+        }
+    }
+
+    &--background {
+        min-height: calc(100vh - 135px);
+        display: flex;
+        align-items: center;
+        position: relative;
+
+        .wrapper {
+            flex: 1;
+        }
+
+        .hero__container {
+            .content {
+                position: relative;
+                z-index: 1;
+                color: var(--light);
+                width: 80%;
+            }
+
+            .image {
+                z-index: 0;
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 100%;
+                width: 100%;
+
+                img {
+                    height: 100%;
+                    width: 100%;
+                    object-fit: cover;
+                }
+            }
+        }
+
+        @media (orientation: portrait) {
+            min-height: calc(60vh - 135px);
+
+        }
+
+        @include breakpoint('max-width', $tablet, 'px') {
+            min-height: 50vh;
+
+            .hero__container {
+                .content {
+                    width: 60%;
+                }
+            }
+
+            @include breakpoint('max-width', $mobile, 'px') {
+                min-height: 60vh;
+
+                .hero__container {
+                    .content {
+                        width: 80%;
+                    }
+                }
+            }
+        }
+    }
+
+    // Reponsive hero with image
+    @include breakpoint('max-width', $tablet, 'px') {
+
+        &.hero--asset,
+        &.hero--side {
+            .image {
+                width: 100vw;
+                @include transform(translateX(-var(--space-sm)));
+
+                @include breakpoint('max-width', $mobile, 'px') {
+                    @include transform(translateX(-var(--space-sm)));
+                }
+            }
+        }
+    }
+}

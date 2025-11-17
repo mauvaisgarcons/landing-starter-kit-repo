@@ -1,0 +1,28 @@
+@use "@/sass/abstracts" as *;
+
+.component {
+    position: relative;
+
+    &__infos {
+        @include breakpoint('max-width', $mobile, 'px') {
+            .content-block--center {
+                text-align: left;
+            }
+        }
+    }
+
+    // Position background texture
+    &__texture {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    &__content {
+        position: relative;
+        z-index: 5;
+    }
+}

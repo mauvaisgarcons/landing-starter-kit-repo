@@ -1,0 +1,18 @@
+@use "@/sass/abstracts" as *;
+
+.remove {
+    text-transform: inherit;
+    color: var(--error);
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 0;
+    background-color: transparent;
+    
+    svg {
+        margin-left: 5px;
+        width: 12px;
+        height: 12px;
+        overflow: visible;
+    }
+}

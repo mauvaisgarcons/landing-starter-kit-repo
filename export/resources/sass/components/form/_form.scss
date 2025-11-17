@@ -1,0 +1,22 @@
+@use "@/sass/abstracts" as *;
+@use "./form-wrapper";
+@use "./form-success";
+@use "./google-recaptcha";
+
+
+// Single form 
+.form{
+    &--dark{
+        color: var(--dark-text-foreground);
+        input, textarea{
+            border-color: var(--light) !important;
+            color: var(--dark-text-foreground) !important;
+
+        }
+    }
+    button{
+        display: flex;
+        margin: auto 0 0 0;
+        margin-top: 10px;
+    }
+}

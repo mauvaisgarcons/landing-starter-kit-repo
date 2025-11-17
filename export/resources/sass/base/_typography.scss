@@ -1,0 +1,229 @@
+@use "@/sass/abstracts" as *;
+@use "sass:math";
+
+/*
+* Typography file
+* 01. Import all necessary font
+* 02. All text styles
+*/
+
+:root {
+    --font-primary: 'Instrument Sans',sans-serif;
+    --font-secondary: 'Instrument Sans', sans-serif;
+}
+
+// Removing all unwanted margin
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+ol,
+ul,
+li,
+a,
+button {
+    margin: 0;
+    color: inherit;
+    font-family: "Instrument Sans", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+
+.bold,
+strong {
+    font-weight: 700 !important;
+    font-family: inherit;
+}
+
+.semibold {
+    font-weight: 500 !important;
+}
+
+
+.underline {
+    text-decoration: underline;
+}
+
+
+
+/*
+* Title style
+*/
+h1,
+.h1 {
+    font-family: var(--font-secondary);
+    font-size: bm(45,78);
+    line-height: bm(50,88);
+    font-weight: 500;
+}
+
+h2,
+.h2 {
+    font-family: var(--font-secondary);
+    font-size: bm(32,45);
+    line-height: bm(38,50);
+    font-weight: 500;
+}
+
+h3,
+.h3 {
+    font-family: var(--font-secondary);
+    font-size: bm(24,35);
+    line-height: bm(28,40);
+    font-weight: 500;
+}
+
+h4,
+.h4 {
+    font-family: var(--font-secondary);
+    font-size: bm(20,20);
+    line-height: bm(22,22);
+    font-weight: 500;
+}
+
+h5,
+.h5 {
+    font-family: var(--font-secondary);
+    font-size: bm(16,18);
+    line-height: bm(18,20);
+}
+
+h6,
+.h6 {
+    font-family: var(--font-secondary);
+    font-size: bm(16,18);
+    line-height: bm(18,20);
+}
+
+
+/*
+* Text style 
+*/
+
+.quote,
+blockquote {
+    font-family: var(--font-secondary);
+    font-size: _rem(20);
+    line-height: _rem(30);
+    font-weight: 500;
+
+    @include breakpoint('max-width', $tablet, 'px') {
+        font-size: _rem(18);
+        line-height: _rem(24);
+    }
+}
+
+.quote {
+    max-width: 80%;
+}
+
+// Paragraphe 1
+p,
+.p1 {
+    font-family: var(--font-primary);
+    font-size: bm(16,16);
+    line-height: bm(22,22);
+    font-weight: 400;
+}
+
+// Paragraphe 2
+
+.p2{
+    font-family: var(--font-primary);
+    font-size: bm(14,14);
+    line-height: bm(22,22);
+    font-weight: 400;
+}
+
+
+// Paragraphe 3
+.p3,
+.tag--small {
+    font-family: var(--font-primary);
+    font-size: bm(12,12);
+    line-height: bm(18,18);
+    font-weight: 400;
+}
+
+.p4{
+    font-family: var(--font-primary);
+    font-size: bm(12,12);
+    line-height: bm(18,18);
+    font-weight: 400;
+}
+
+
+.btn,
+button,
+.link {
+    font-family: var(--font-primary);
+    font-size: bm(16,16);
+    line-height: bm(22,22);
+    font-weight: 500;
+}
+
+// Lien menu
+.lm {
+    font-family: var(--font-primary);
+    font-size: bm(16,16);
+    line-height: bm(22,22);
+    font-weight: 600;
+    svg{
+        width: 15px;
+    }
+}
+
+.lf{
+    font-family: var(--font-primary);
+    font-size: bm(16,16);
+    line-height: bm(22,22);
+    font-weight: 400;
+}
+
+.label,
+label{
+    font-family: var(--font-primary);
+    font-size: bm(16,16);
+    line-height: bm(22,22);
+    font-weight: 400;
+}
+
+.text-tag,
+.tag {
+    font-family: var(--font-primary);
+    font-size: bm(16,16);
+    line-height: bm(22,22);
+    font-weight: 500;
+}
+
+
+input,
+select,
+.input {
+    font-family: var(--font-primary);
+    font-size: bm(16,16);
+    line-height: bm(24,24);
+    font-weight: 500;
+}
+
+
+table {
+    th p {
+        font-weight: bold;
+    }
+
+    td p {
+        font-family: var(--font-primary);
+        font-weight: 500;
+    }
+}
+.spacer {
+    height: var(--space-md);
+    width: 100%;
+}
+
+.accent{
+    color: var(--accent);
+}
+

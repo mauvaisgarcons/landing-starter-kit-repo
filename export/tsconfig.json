@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "moduleResolution": "node",
+    "module": "es2020", // or 'esnext', 'node16', etc.
+    "target": "es2020",
+    "baseUrl": ".", // Racine du projet
+    "paths": {
+      "@/*": ["resources/*"],
+      "*": ["node_modules/*"]
+    }
+  }
+}

@@ -1,0 +1,95 @@
+@use "@/sass/abstracts" as *;
+
+
+// Anchors menu 
+.anchors {
+    &__menu {
+        .anchor {
+            .link {
+                transition: all 300ms var(--transition-basic);
+                @include hover {
+                    text-decoration: underline;
+                    color: var(--accent);
+                }
+            }
+        }
+
+    }
+
+
+    @include breakpoint('max-width', 600, 'px') {
+        &__menu {
+            top: 0;
+            left: 0;
+            height: 100%;
+            z-index: 200;
+            @include transform(translate3d(100%, 0, 0));
+            transition: all 600ms var(--transition-basic);
+
+            &.is-visible {
+                @include transform(translate3d(0, 0, 0));
+            }
+            .anchor {
+                border-bottom: 1px solid var(--primary-600);
+
+            }
+
+        }
+    }
+}
+
+
+.anchors_v2{
+    z-index: 10;
+    bottom: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    left: 0%;
+    width: 100%;
+    //@include transform(translateX(-50%));
+    .mobile-button{
+        z-index: 10;
+        button{
+            justify-content: space-between;
+        }
+    }
+    &__list{
+        background-color: var(--gray-50);
+        border-radius: 4px;
+        box-shadow: 0px -8px 11px -6px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        @include transform(translateY(100%));
+        transition: all 400ms cubic-bezier(0.4, 0, 0.2, 1);
+        li{
+            width: 100%;
+        }
+        a{
+            text-decoration: none;
+            &:hover, &.active{
+                color: var(--accent);
+            }
+        }
+    }
+    &.is-visible{
+        .anchors_v2__list{
+            @include transform(translateY(0%));
+        }
+    }
+
+    @include breakpoint('min-width', 600, 'px'){
+        left: 50%;
+        bottom: 20px;
+        @include transform(translateX(-50%));
+         &__list{
+             width: auto;
+             @include transform(translateY(0));
+             box-shadow: 0px 6px 11px -6px rgba(0, 0, 0, 0.1);
+             li{
+                width: auto;
+             }
+         }
+    }
+
+}

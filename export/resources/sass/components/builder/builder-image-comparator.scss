@@ -1,0 +1,78 @@
+@use "@/sass/abstracts" as *;
+
+.comparator{
+    position: relative;
+    height: 50vw;
+    max-height: 600px;
+	width: 100%;
+
+    &__image{
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+        
+        /* Force Hardware Acceleration in WebKit */
+        @include transform(translateZ(0));
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+
+        &:last-child{
+            width: 50%;
+            border-right: solid 1.5px white;
+        }
+        
+        img {
+            display: block;
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: auto;
+            max-width: none;
+            object-fit: cover;
+
+            //remove select
+            -khtml-user-select: none;
+            -o-user-select: none;
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            user-select: none;
+        }
+    }
+
+    &__handle{
+        position: absolute;
+        height: 50px;
+        width: 50px;
+        /* center the element */
+        left: 50%;
+        top: 50%;
+        margin-left: -25px;
+        margin-top: -25px;
+        border-radius: 50%;
+        background-color: white;
+        transition: background-color 300ms var(--transition-basic);
+        
+        cursor: move;
+        touch-action: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        &.draggable {
+            background-color: var(--gray);
+        }
+
+        //icon in the handle
+        &::after{
+            position: absolute;
+            background-image: url('/storage/handle.svg');
+            width: 29px; 
+            height: 12px;
+            @include center();
+            content:"";
+        }
+    }
+}

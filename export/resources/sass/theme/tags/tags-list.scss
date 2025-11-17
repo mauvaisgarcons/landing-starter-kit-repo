@@ -1,0 +1,8 @@
+@use "@/sass/abstracts" as *;
+
+.tags-list {
+    flex-wrap: wrap;
+    &__tag {
+        list-style: none;
+    }
+}

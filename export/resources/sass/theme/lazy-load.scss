@@ -1,0 +1,9 @@
+.lazy {
+    transition: all 400ms ease-in;
+    opacity: 0;
+
+    &.is-loaded {
+        opacity: 1;
+        filter: blur(0);
+    }
+}

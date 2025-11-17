@@ -1,0 +1,249 @@
+@use "@/sass/abstracts" as *;
+@use "./file";
+@use "./files-list";
+@use "./files-notice";
+@use "./remove";
+@use "./remove-all";
+
+.field {
+
+    position: relative;
+    margin: 10px 0;
+
+    &:not(&--inline) {
+
+        label,
+        input,
+        select,
+        textarea {
+            display: block;
+        }
+    }
+
+
+    &.is-hidden {
+        display: none;
+    }
+
+    // Error message 
+    &.error {
+        .error-msg {
+            margin-top: 5px;
+            color: var(--error);
+        }
+
+        input,
+        select,
+        textarea {
+            color: var(--error) !important;
+            border-color: var(--error) !important;
+        }
+
+        label,
+        .label {
+            color: var(--error);
+            white-space: nowrap;
+        }
+
+        .error-icon {
+            position: absolute;
+            top: 35px;
+            right: 20px;
+        }
+    }
+
+
+    label{
+        color: var(--input-color);
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="date"],
+    select,
+    textarea {
+        // Removing default style
+        -webkit-appearance: none;
+        appearance: none;
+
+        border: none;
+        outline: none;
+        transition: all 300ms var(--transition-basic);
+        background-color: transparent;
+        border: solid 1px var(--input-color);
+        padding: 10px 15px;
+        position: relative;
+        z-index: 1;
+        color: var(--input-text-color);
+        width: 100%;
+        margin-top: 10px;
+
+        &[type="checkbox"] {
+            min-width: auto;
+            opacity: 0;
+            display: inline-block;
+        }
+
+        &:focus {
+            border-color: var(--input-focus);;
+        }
+    }
+
+    input[type="date"],
+    select {
+        cursor: pointer;
+    }
+
+    textarea {
+        min-height: 200px;
+        padding: var(--space-sm);
+        margin: 10px 0;
+    }
+
+    .checkboxes,
+    .radio {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+
+        label {
+            padding: 10px;
+            transition: opacity 300ms var(--transition-basic);
+        }
+
+        .choice {
+            cursor: pointer;
+            display: flex;
+
+            input {
+                margin-right: 5px;
+            }
+
+            @include hover() {
+                opacity: 0.6;
+                text-decoration: underline;
+            }
+        }
+
+    }
+
+    input[type="radio"],
+    input[type="checkbox"] {
+        outline: none;
+        -webkit-appearance: none;
+        appearance: none;
+        width: 20px;
+        height: 20px;
+        background-color: transparent;
+        border: solid 1px var(--input-color);
+
+        &:checked {
+            background-color: var(--input-color);
+            position: relative;
+
+            &:after {
+                position: absolute;
+                border: 1px solid #fff;
+                left: 1px;
+                right: 1px;
+                top: 1px;
+                bottom: 1px;
+                content: "";
+            }
+        }
+    }
+
+    input[type="radio"] {
+        border-radius: 50%;
+
+        &:checked {
+            &::after {
+                border-radius: 50%;
+            }
+        }
+    }
+
+    // File upload design box
+    .file-upload {
+        padding: var(--space-lg) var(--space-sm);
+        border: dashed 2px var(--input-color);
+        text-align: center;
+        transition: all 300ms ease-out;
+        margin-top: 5px;
+        color: var(--input-color);
+
+        &--over {
+            border: solid 2px var(--input-color);
+            background-color: rgba(black, 0.1);
+        }
+
+        input {
+            display: none;
+        }
+
+        .upload-file {
+            text-decoration: underline;
+            display: inline-block;
+            cursor: pointer;
+
+            @include hover() {
+                opacity: 0.6;
+            }
+        }
+    }
+
+    &.select {
+        transition: all 300ms ease-in-out;
+        .select{
+            position: relative;
+        }
+        select {
+            height: 42px;
+            color: var(--input-text-color);
+        }
+        svg{
+            position: absolute;
+            pointer-events: none;
+            right: 10px;
+            top: 10px;
+            width: 20px;
+        }
+    }
+
+    .infos {
+        opacity: 0.8;
+        margin-top: 5px;
+    }
+
+    @include breakpoint('max-width', $mobile, 'px') {
+        margin: 10px 0 20px 0;
+
+        &.checkboxes,
+        &.radios {
+
+            .checkboxes__list,
+            .radios__list {
+                display: block;
+            }
+        }
+    }
+}
+
+.select--simple {
+    border-radius: 8px;
+    position: relative;
+    select{
+        background: transparent;
+        padding: 15px 30px;
+        appearance: none;
+        border: none;
+    }
+    svg{
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 20px;
+        pointer-events: none;
+    }
+}
+

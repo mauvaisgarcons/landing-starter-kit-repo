@@ -1,0 +1,18 @@
+// Allow image to be align trbl
+img {
+    &.al-top {
+        object-position: top;
+    }
+
+    &.al-bottom {
+        object-position: bottom;
+    }
+
+    &.al-left {
+        object-position: left;
+    }
+
+    &.al-right {
+        object-position: right;
+    }
+}

@@ -1,0 +1,207 @@
+@use "@/sass/abstracts" as *;
+
+// Theme use for creating the ui kit
+@use "./fields/field";
+@use "./fields/ui-field";
+@use "./text-block";
+@use "./button";
+@use "./slider/slider";
+@use "./cards/cards";
+@use "./folders";
+@use "./tabs";
+@use "./tags/tags";
+@use "./table";
+@use "./video";
+@use "./lazy-load";
+@use "./loader";
+@use "./images";
+@use "./pagination";
+@use "./icons";
+@use "./anchors";
+@use "./popups";
+@use "./author";
+@use "./beta-notice";
+/**
+* Initialise theme layers
+**/
+
+
+html {
+    background-color: var(--secondary);
+    &.is-animating {
+        cursor: progress !important;
+    }
+
+    &.is-progress {
+        cursor: progress !important;
+    }
+}
+
+
+.content-block {
+
+
+    > *:only-child{
+        margin: 0 !important;
+    }
+    > *:not(:last-child){
+        margin-bottom: 30px;
+    }
+
+    .tabs{
+         margin: 20px 0;
+    }
+    .image{
+        margin-bottom: 20px;
+    }
+    .button {
+        display: inline-block;
+
+        .btn {
+            margin-right: 10px;
+        }
+
+        &:last-child {
+            .btn {
+                margin-right: unset;
+            }
+        }
+
+        @include breakpoint('max-width', $smallMobile, 'px') {
+            display: block;
+
+            .btn {
+                width: 100%;
+            }
+        }
+    }
+
+    &--left {
+        text-align: left;
+        //align-items: flex-start
+    }
+
+    &--right {
+        text-align: right;
+        > * {
+            justify-self: flex-end;
+        }
+        .text-block{
+            align-items: flex-end;
+        }
+    }
+
+    &--center {
+        text-align: center;
+        > * {
+            justify-self: center
+        }
+        .text-block{
+            align-items: center;
+        }
+    }
+}
+
+
+.link {
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: bold;
+
+    // Ajust size of icons in meta menu
+    span[class^='icon-'],
+    i {
+        font-size: 12px;
+        margin-left: 8px;
+    }
+
+    &--back {
+        display: flex;
+        justify-content: flex-start !important;
+        gap: 5px;
+    }
+}
+
+.text-light {
+    color: var(--dark-text-foreground);
+}
+
+.text-dark {
+    color: var(--light-text-foreground);
+}
+
+
+.hide {
+    display: none;
+}
+
+.layout-sidebar{
+    .layout__item{
+        &:first-child{
+            flex-basis: 250px;
+        }
+    }
+}
+
+
+
+
+// THEME VARIATIONS SCHEMA
+// @Simon créer des theme de couleur
+:root{
+    --input-color: var(--primary);
+    --input-focus: var(--accent);
+    --input-text-color: var(--secondary-text-foreground);;
+}
+
+.theme-secondary{
+    // Input variable
+    --input-color: var(--secondary-text-foreground);
+    --input-focus: var(--accent);
+    --input-text-color: var(--secondary-text-foreground);
+
+    // Card variable
+    --theme-card-background: var(--gray-50);
+    --theme-card-foreground: var(--gray-50-text-foreground);
+
+    // Table variable
+    --theme-table-border: var(--secondary-text-foreground);
+    --theme-table-color: var(--secondary-text-foreground);
+    --theme-table-head-background: transparent;
+    --theme-table-head-foreground: var(--theme-table-color);
+}   
+
+.theme-primary{
+    --theme-table-border: var(--primary-text-foreground);
+    --theme-table-color: var(--primary-text-foreground);
+    --theme-table-head-background: transparent;
+    --theme-table-head-foreground: var(--theme-table-color);
+    
+    background-color: var(--primary);
+    color: var(--primary-text-foreground);
+    
+}
+
+.theme-accent{
+    --theme-table-border: var(--accent-text-foreground);
+    --theme-table-color: var(--accent-text-foreground);
+    --theme-table-head-background: transparent;
+    --theme-table-head-foreground: var(--theme-table-color);
+
+    --theme-card-background: var(--secondary);
+    --theme-card-foreground: var(--secondary-text-foreground);
+}
+
+.theme-gray{
+    --theme-table-border: var(--gray-text-foreground);
+    --theme-table-color: var(--gray-text-foreground);
+    --theme-table-head-background: transparent;
+    --theme-table-head-foreground: var(--theme-table-color);
+
+    --theme-card-background: var(--secondary);
+    --theme-card-foreground: var(--secondary-text-foreground);
+}
+.theme-light{
+    --theme-card-background: var(--gray-50);
+    --theme-card-foreground: var(--light-text-foreground);
+}

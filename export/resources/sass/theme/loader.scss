@@ -1,0 +1,53 @@
+@use "@/sass/abstracts" as *;
+
+
+.loading {
+
+ 
+
+    transition: all 500ms var(--transition-basic);
+    clip-path: inset(0 0 0 0);
+    &.hidden{
+        display: none;
+    }
+    &__logo{
+        svg{
+            .path-group{
+                overflow: hidden;
+            }
+            path{
+                transition: all 400ms var(--transition-basic);
+                transform: translate3d(0, 0, 0);
+            }
+        }
+    }
+    &__time{
+        position: absolute;
+        bottom: 40px;
+        right: 40px;
+        transition: all 200ms var(--transition-basic);
+        opacity: 0;
+        svg{
+            width: 40px;
+            height: 40px;
+        }
+    }
+    &.is-long{
+        .loading__time{
+            opacity: 1;
+        }
+    }   
+    &.is-loaded{
+        transition-delay: 300ms;
+        clip-path: inset(0 0 100% 0);
+        .loading__logo{
+            svg{
+                path{
+                    transform: translate3d(0, 100%, 0);
+                    opacity: 0;
+                }
+            }
+        }
+       
+    }
+}

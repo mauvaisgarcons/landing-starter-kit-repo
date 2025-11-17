@@ -1,0 +1,285 @@
+@use "./config" as *;
+@use "@/sass/abstracts" as *;
+@use "sass:map";
+
+// Configuration des tailles de texte avec des propriétés comme font-size et line-height
+$text-size: (
+    xs: (
+        font-size: bm(
+            map.get($font-base, mobile) * 0.8,
+            map.get($font-base, desktop) * 0.8,
+        ),
+        line-height: 150%,
+        font-weight: 400,
+    ),
+
+    sm: (
+        font-size: bm(
+            map.get($font-base, mobile) * 0.9,
+            map.get($font-base, desktop) * 0.9,
+        ),
+        line-height: 150%,
+        font-weight: 400,
+    ),
+    base: (
+        font-size: bm(
+            map.get($font-base, mobile) * 1,
+            map.get($font-base, desktop) * 1
+        ),
+        line-height: 150%,
+        font-weight: 400,
+    ),
+    md: (
+        font-size: bm(
+            map.get($font-base, mobile) * 1.25,
+            map.get($font-base, desktop) * 1.25,
+        ),
+        line-height: 150%,
+        font-weight: 400,
+    ),
+    lg: (
+        font-size: bm(
+            map.get($font-base, mobile) * 1.5,
+            map.get($font-base, desktop) * 1.5,
+        ),
+        line-height: 150%,
+        font-weight: 400,
+    ),
+    xl: (
+        font-size: bm(
+            map.get($font-base, mobile) * 1.8,
+            map.get($font-base, desktop) * 1.8,
+        ),
+        line-height: 150%,
+        font-weight: 400,
+    ),
+    
+    // Tailles supplémentaires pour les textes très grands
+    "2xl":  (
+        font-size: bm(
+            map.get($font-base, mobile) * 2,
+            map.get($font-base, desktop) * 2,
+        ),
+        line-height: 150%,
+        font-weight: 400,
+    ),
+    "3xl":  (
+        font-size: bm(
+            map.get($font-base, mobile) * 2.2,
+            map.get($font-base, desktop) * 2.2,
+        ),
+        line-height: 150%,
+        font-weight: 400,
+    ),
+    "4xl":  (
+        font-size: bm(
+            map.get($font-base, mobile) * 2.4,
+            map.get($font-base, desktop) * 2.4,
+        ),
+        line-height: 150%,
+        font-weight: 400,
+    ),
+    "5xl":  (
+        font-size: bm(
+            map.get($font-base, mobile) * 2.6,
+            map.get($font-base, desktop) * 2.6,
+        ),
+        line-height: 150%,
+        font-weight: 400,
+    ),
+    "6xl":  (
+        font-size: bm(
+            map.get($font-base, mobile) * 2.8,
+            map.get($font-base, desktop) * 2.8,
+        ),
+        line-height: 150%,
+        font-weight: 400,
+    ),
+    "7xl":  (
+        font-size: bm(
+            map.get($font-base, mobile) * 3,
+            map.get($font-base, desktop) * 3,
+        ),
+        line-height: 150%,
+        font-weight: 400,
+    ),
+    "8xl":  (
+        font-size: bm(
+            map.get($font-base, mobile) * 3.2,
+            map.get($font-base, desktop) * 3.2,
+        ),
+        line-height: 150%,
+        font-weight: 400,
+    ),
+    "9xl":  (
+        font-size: bm(
+            map.get($font-base, mobile) * 3.4,
+            map.get($font-base, desktop) * 3.4,
+        ),
+        line-height: 150%,
+        font-weight: 400,
+    )
+);
+
+// Génération des classes pour les tailles de texte
+@each $key, $value in $text-size {
+    .text-#{$key} {
+        @each  $property, $propertyv_value in $value {
+            #{$property}: #{$propertyv_value}
+        }    
+    }
+}
+
+// Génération des classes responsives pour les tailles de texte
+@each $breakpoint, $breakpoint-value in $breakpoints {
+    @each $key, $value in $text-size {
+        @media screen and (min-width: $breakpoint-value) {
+            .#{$breakpoint}_text-#{$key} {
+                @each  $property, $propertyv_value in $value {
+                    #{$property}: #{$propertyv_value}
+                }    
+            }
+        }
+    }    
+}
+
+// Configuration des tailles pour les titres (h1 à h6)
+$heading-size: (
+    h1: (
+        font-size: bm(
+            map.get($font-base, mobile) * 2.8,
+            map.get($font-base, desktop) * 3.5,
+        ),
+        line-height: 150%,
+    ),
+    h2: (
+        font-size: bm(
+            map.get($font-base, mobile) * 2.6,
+            map.get($font-base, desktop) * 2.6,
+        ),
+        line-height: 150%,
+    ),
+    h3: (
+        font-size: bm(
+            map.get($font-base, mobile) * 2.4,
+            map.get($font-base, desktop) * 2.4,
+        ),
+        line-height: 150%,
+    ),
+    h4: (
+        font-size: bm(
+            map.get($font-base, mobile) * 2.2,
+            map.get($font-base, desktop) * 2.2,
+        ),
+        line-height: 150%,
+    ),
+    h5: (
+        font-size: bm(
+            map.get($font-base, mobile) * 2,
+            map.get($font-base, desktop) * 2,
+        ),
+        line-height: 150%,
+    ),
+
+    h6: (
+        font-size: bm(
+            map.get($font-base, mobile) * 1.8,
+            map.get($font-base, desktop) * 1.8,
+        ),
+        line-height: 150%,
+    )
+);
+
+
+// Génération des classes pour les titres
+@each $key, $value in $heading-size {
+    .heading-#{$key} {
+        @each  $property, $propertyv_value in $value {
+            #{$property}: #{$propertyv_value}
+        }    
+    }
+}
+
+// Génération des classes responsives pour les titres
+@each $breakpoint, $breakpoint-value in $breakpoints {
+    @each $key, $value in $heading-size {
+        @media screen and (min-width: $breakpoint-value) {
+            .#{$breakpoint}_heading-#{$key} {
+                @each  $property, $propertyv_value in $value {
+                    #{$property}: #{$propertyv_value}
+                }    
+            }
+        }
+    }    
+}
+
+// Modificateurs de texte : poids de police, style de police, transformation du texte, décoration du texte, alignement du texte
+
+// Génération des classes pour le poids de police
+@each $value in (100, 300, 400, 400, normal, 700, 800, bold, 900) {
+    .fw-#{$value} {
+        font-weight: $value;
+    }
+}
+
+// Génération des classes pour le style de police
+@each $value in (italic) {
+    .fs-#{$value} {
+        font-style: $value;
+    }
+}
+
+// Génération des classes pour la transformation du texte
+@each $value in (capitalize, uppercase) {
+    .tt-#{$value} {
+        text-transform: $value;
+    }
+}
+
+// Génération des classes pour la décoration du texte
+@each $value in (underline, line-through, none) {
+    .td-#{$value} {
+        text-decoration: $value;
+    }
+}
+
+// Génération des classes pour l'alignement du texte
+@each $value in (left, center, right) {
+    .ta-#{$value} {
+        text-align: $value;
+    }
+}
+
+// Génération des classes responsives pour les modificateurs de texte
+@each $breakpoint, $breakpoint-value in $breakpoints {
+    @media screen and (min-width: $breakpoint-value) {
+        @each $value in (100, 300, 400, 400, normal, 700, 800, bold, 900) {
+            .#{$breakpoint}_fw-#{$value} {
+                font-weight: $value;
+            }
+        }
+        
+        @each $value in (italic) {
+            .#{$breakpoint}_fs-#{$value} {
+                font-style: $value;
+            }
+        }
+        
+        @each $value in (capitalize, uppercase) {
+            .#{$breakpoint}_tt-#{$value} {
+                text-transform: $value;
+            }
+        }
+        
+        @each $value in (underline, line-through) {
+            .#{$breakpoint}_td-#{$value} {
+                text-decoration: $value;
+            }
+        }
+        @each $value in (left, center, right) {
+            .#{$breakpoint}_ta-#{$value} {
+                text-align: $value;
+            }
+        }
+    }
+}

@@ -1,0 +1,10 @@
+// Formatting contact information block
+.contact-informations{
+
+    .meta__socials{
+        // margin-top: var(--space-lg);
+        li:first-child{
+            margin-left: 0;
+        }
+    }
+}

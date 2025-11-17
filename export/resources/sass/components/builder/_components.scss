@@ -1,0 +1,17 @@
+@use "@/sass/abstracts" as *;
+
+@use "./tabs";
+@use "./map";
+@use "./component";
+
+.components {
+
+    // Components list for article only
+    &--article {
+        .component {
+            &:first-child {
+                padding-top: var(--space-sm);
+            }
+        }
+    }
+}

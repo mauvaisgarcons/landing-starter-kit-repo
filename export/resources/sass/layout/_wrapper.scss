@@ -1,0 +1,112 @@
+@use "@/sass/abstracts" as *;
+
+.push-top {
+    // Push all page content under the header because it is fixed
+    margin-top: var(--headerHeigth);
+    /*
+    @include breakpoint('max-width', $menuTablet, 'px'){    
+        margin-top: var(--headerHeigth);
+        @include breakpoint('max-width', $mobile, 'px'){    
+            margin-top: var(--headerHeigth);
+        }
+    }*/
+}
+
+.sm-wrapper {
+    padding: 0 var(--space-sm);
+    max-width: 1080px;
+    margin: auto;
+
+    @include breakpoint('max-width', $mobile, 'px') {
+        padding: 0 var(--space-sm);
+    }
+}
+
+.sm-wrapper-fluid {
+    padding: 0 var(--space-sm);
+    max-width: 1080px;
+    width: 80%;
+    margin: auto;
+
+    @include breakpoint('max-width', $mobile, 'px') {
+        padding: 0 var(--space-sm);
+        width: 85%;
+    }
+}
+
+.xs-wrapper {
+    padding: 0 var(--space-sm);
+    max-width: 900px;
+    margin: auto;
+
+    @include breakpoint('max-width', $mobile, 'px') {
+        padding: 0 var(--space-sm);
+    }
+    &--no-pd {
+        padding: 0 !important;
+    }
+}
+
+.wrapper {
+    padding: 0 var(--space-lg);
+    margin: auto;
+    //max-width: 1440px;
+
+    &--no-pd {
+        padding: 0 !important;
+    }
+
+    @include breakpoint('max-width', $smallDesktop, 'px') {
+        padding: 0 var(--space-lg);
+
+        @include breakpoint('max-width', $tablet, 'px') {
+            padding: 0 var(--space-sm);
+
+            @include breakpoint('max-width', $mobile, 'px') {
+                padding: 0 var(--space-sm);
+            }
+        }
+    }
+}
+
+.lg-wrapper {
+    margin: auto;
+    padding: 0 var(--space-lg);
+    max-width: 1920px;
+
+    @include breakpoint('max-width', $smallDesktop, 'px') {
+        padding: 0 var(--space-lg);
+
+        @include breakpoint('max-width', $tablet, 'px') {
+            padding: 0 var(--space-sm);
+
+            @include breakpoint('max-width', $mobile, 'px') {
+                padding: 0 var(--space-sm);
+            }
+        }
+    }
+}
+
+
+.wrapper--align-left {
+    margin: 0 0 auto 0;
+}
+
+.wrapper--align-right {
+    margin: 0 0 0 auto;
+}
+
+
+
+.xs-ct-wrapper{
+    max-width: 900px;
+    margin: auto;
+}
+.ct-wrapper{
+    max-width: 1440px;
+    margin: auto;
+}
+.xl-ct-wrapper{
+    max-width: 1920px;
+    margin: auto;
+}

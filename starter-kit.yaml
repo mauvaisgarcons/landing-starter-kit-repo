@@ -4,10 +4,13 @@ export_paths:
   - config/filesystems.php
   - config/statamic/assets.php
   - resources/blueprints
-  - resources/css/site.css
+  - resources/sass
   - resources/views
   - public/build
   - package.json
+  - plugins
   - vite.config.js
+  - theme.config.js
+  - tsconfig.json
 dependencies:
   statamic/ssg: ^3.1
