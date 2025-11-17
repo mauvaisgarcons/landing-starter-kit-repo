@@ -1,7 +1,7 @@
 {
     "name": "mauvaisgarcons/landing-starter-kit-repo",
     "require": {
-        "mauvaisgarcons/landing-starter-kit-repo": "dev-master" 
+        "mauvaisgarcons/landing-starter-kit-repo": "dev-main" 
     },
     "repositories": [ 
         {
