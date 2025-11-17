@@ -1,0 +1,30 @@
+{
+    "name": "mg/landing-starter-kit",
+    "repositories": [ 
+        {
+            "type": "path",
+            "url": "package"
+        }
+    ],
+    "extra": {
+        "statamic": {
+            "name": "Landing Starter Kit",
+            "description": "Simple landing page generator with all the basic stuff and also the good one"
+        },
+        "laravel": {
+            "providers": [
+                "Mg\\LandingStarterKit\\ServiceProvider"
+            ]
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Mg\\LandingStarterKit\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests"
+        }
+    }
+}
